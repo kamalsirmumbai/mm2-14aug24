@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title> MM App 2 by Kamal Sir </title>
+		<style>
+			* { font-size: 40px;}
+			body { background-color:lightblue; }
+		</style>
+	</head>
+	<body>
+		<center>
+			<h1> Motivational Msg App </h1>
+			<form onsubmit="show()">
+				<input type="submit" value="Show Msg"/>
+			</form>
+			<h2 id="msg" />
+
+			<script>
+				function show()
+				{
+					event.preventDefault();
+					let msg = document.getElementById("msg");
+						
+					let url = "https://quotes-api-self.vercel.app/quote";
+					fetch(url)
+					.then(res => res.json())
+					.then (data => msg.innerHTML = data.quote)
+					.catch(err => msg.innerHTML = "issue " + err);
+	
+				}
+			</script>
+		</center>
+	</body>
+</html>
+
+
+
+
